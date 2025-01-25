@@ -1,15 +1,16 @@
 import mongoose from 'mongoose';
-const MONGO_URL = process.env.MONGO_URL;
 
 function connectDB() {
+  const MONGO_URL = process.env.MONGO_URL;
   mongoose.connect(MONGO_URL);
-  const db = mongoose.  console.log('Error connecting database', err);
-connection;
+  const db =mongoose.connection;
 db.on('error',(err)=> {
+  console.log('Error connecting database', err);
+
 });
 db.once('connected',()=> {
   console.log('Database connected');
 });
 }
-export{ connectDB}
+export{ connectDB };
 
